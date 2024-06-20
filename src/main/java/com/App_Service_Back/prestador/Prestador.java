@@ -31,7 +31,7 @@ public class Prestador implements Serializable {
     private List<Servicos> servicos;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "prestador_endereco_id", nullable = false)
+    @JoinColumn(name = "prestador_endereco_id")
     private Endereco endereco;
 
     @OneToMany( fetch = FetchType.EAGER)

@@ -34,13 +34,7 @@ public class ClienteController {
     }
     @PostMapping //salvar um cliente no banco de dados
     public ResponseEntity<ClienteDTO> createCliente(@Valid @RequestBody ClienteDTO clienteDTO){
-
         ClienteDTO createClienteDTO = clienteService.create(clienteDTO);
-//        TelefoneDTO telefoneDTO = new TelefoneDTO();
-//        telefoneDTO.setTelefone_numero(clienteDTO.getTelefone_numero());
-//        Cliente cliente = clienteMapper.toEntity(createClienteDTO);
-//        telefoneDTO.setCliente(cliente);
-//        telefoneService.create(telefoneDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(createClienteDTO);
     }
     @PutMapping("/{id}")

@@ -9,15 +9,20 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.web.JsonPath;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.transaction.TestTransaction;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+
 @SpringBootTest
 @AutoConfigureMockMvc
 public class CategoriaTest {
@@ -26,6 +31,22 @@ public class CategoriaTest {
 
     @Autowired
     private ObjectMapper objectMapper;
+
+    @Test
+    @DisplayName("Verifica um ID inexistente")
+    void idInexistente() throws Exception{
+        mockMvc.perform(get("/categoria/20")).andExpect(status().isNotFound())
+                .andExpect(content().string("Categoria não encontrada"));
+    }
+
+    @Test
+    @DisplayName("Verifica um ID existente")
+    void findId()  throws Exception{
+        mockMvc.perform(get("/categoria/1")).andExpect(status().isOk())
+                .andExpect(jsonPath("$.categoria_nome").value("bbbbbbbb"));
+    }
+
+
     @Test
     @DisplayName("Verificar se a rota de categoria está respondendo corretamente")
     void index() throws Exception{
@@ -82,4 +103,6 @@ public class CategoriaTest {
 
         TestTransaction.end();
     }
+
+
 }

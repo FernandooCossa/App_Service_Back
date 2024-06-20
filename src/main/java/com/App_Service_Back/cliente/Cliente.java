@@ -115,12 +115,12 @@ public class Cliente implements Serializable {
         this.telefones = telefones;
     }
 
-   public List<Agendamento> getAgendamentos() {
+    public List<Agendamento> getAgendamentos() {
         return agendamentos;
     }
 
     public void setAgendamentos(List<Agendamento> agendamentos) {
-       this.agendamentos = agendamentos;
+        this.agendamentos = agendamentos;
     }
 
     @Override
