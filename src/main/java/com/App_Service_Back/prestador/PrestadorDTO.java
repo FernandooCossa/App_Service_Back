@@ -11,7 +11,6 @@ import org.hibernate.validator.constraints.br.CPF;
 import java.io.Serializable;
 import java.util.List;
 
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -25,7 +24,6 @@ public class PrestadorDTO implements Serializable {
 
     private  String prestador_cnpj;
 
-    @CPF
     @NotNull(message = "O campo CPF é requerido")
     private  String prestador_cpf;
 
