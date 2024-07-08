@@ -3,10 +3,7 @@ package com.App_Service_Back.servicos;
 import com.App_Service_Back.agendamento.Agendamento;
 import com.App_Service_Back.categoria.Categoria;
 import com.App_Service_Back.prestador.Prestador;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
+
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -38,4 +35,7 @@ public class ServicosDTO {
     private List<Agendamento> agendamentos;
 
     private String servico_classificacao;
+
+    public void setServico_id(Long id) {
+    }
 }

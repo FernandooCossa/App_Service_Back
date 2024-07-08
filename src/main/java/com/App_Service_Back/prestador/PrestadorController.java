@@ -29,7 +29,7 @@ public class PrestadorController {
     }
 
     @PostMapping //salvar um prestador no banco de dados
-    public ResponseEntity<PrestadorDTO> createPrestador(@RequestBody PrestadorDTO prestadorDTO){
+    public ResponseEntity<PrestadorDTO> createPrestador(@Valid @RequestBody PrestadorDTO prestadorDTO){
         System.out.println("prestadorDto:"+prestadorDTO);
         PrestadorDTO createPrestadorDTO = prestadorService.create(prestadorDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(createPrestadorDTO);
@@ -57,6 +57,7 @@ public class PrestadorController {
 
         try {
             List<PrestadorDTO> prestadores = prestadorService.findByServicoNome(servicoNome);
+            System.out.println("lista de prestadores:"+prestadores);
             return ResponseEntity.ok(prestadores);
         } catch (Exception e) {
             // Log the exception (e.g., using SLF4J or another logging framework)

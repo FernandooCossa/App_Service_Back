@@ -21,7 +21,7 @@ public interface ClienteMapper {
             @Mapping(source = "clienteDTO.cliente_id", target = "cliente_id"),
             @Mapping(source = "clienteDTO.cliente_nome", target = "cliente_nome"),
             @Mapping(source = "clienteDTO.cliente_cpf", target = "cliente_cpf"),
-            @Mapping(source = "clienteDTO.cliente_email", target = "cliente_email"),
+            @Mapping(source = "clienteDTO.email", target = "email"),
             @Mapping(source = "clienteDTO.cliente_senha", target = "cliente_senha"),
             @Mapping(source = "clienteDTO.cliente_dataNascimento", target = "cliente_dataNascimento"),
             @Mapping(source = "clienteDTO.endereco", target = "endereco"),
