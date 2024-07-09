@@ -24,7 +24,7 @@ public class ServicosController {
         return ResponseEntity.ok(servicosDTO);
     }
     @PostMapping //salvar um servico no banco de dados
-    public ResponseEntity<ServicosDTO> createServicos(@Valid @RequestBody ServicosDTO servicosDTO){
+    public ResponseEntity<ServicosDTO> createServicos(@RequestBody ServicosDTO servicosDTO){
         ServicosDTO createServicosDTO = servicosService.create(servicosDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(createServicosDTO);
     }

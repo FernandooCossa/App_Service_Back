@@ -24,7 +24,7 @@ public class EnderecoController {
         return ResponseEntity.ok(enderecoDTO);
     }
     @PostMapping //salvar um endereco no banco de dados
-    public ResponseEntity<EnderecoDTO> createEndereco(@Valid @RequestBody EnderecoDTO enderecoDTO){
+    public ResponseEntity<EnderecoDTO> createEndereco( @RequestBody EnderecoDTO enderecoDTO){
         EnderecoDTO createEnderecoDTO = enderecoService.create(enderecoDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(createEnderecoDTO);
     }

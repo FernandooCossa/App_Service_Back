@@ -33,7 +33,7 @@ public class ClienteController {
         return ResponseEntity.ok(clienteDTO);
     }
     @PostMapping //salvar um cliente no banco de dados
-    public ResponseEntity<ClienteDTO> createCliente(@Valid @RequestBody ClienteDTO clienteDTO){
+    public ResponseEntity<ClienteDTO> createCliente(@RequestBody ClienteDTO clienteDTO){
         ClienteDTO createClienteDTO = clienteService.create(clienteDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(createClienteDTO);
     }

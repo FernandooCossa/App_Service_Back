@@ -29,7 +29,7 @@ public class PrestadorController {
     }
 
     @PostMapping //salvar um prestador no banco de dados
-    public ResponseEntity<PrestadorDTO> createPrestador(@Valid @RequestBody PrestadorDTO prestadorDTO){
+    public ResponseEntity<PrestadorDTO> createPrestador(@RequestBody PrestadorDTO prestadorDTO){
         System.out.println("prestadorDto:"+prestadorDTO);
         PrestadorDTO createPrestadorDTO = prestadorService.create(prestadorDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(createPrestadorDTO);
